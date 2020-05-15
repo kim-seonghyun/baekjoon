@@ -1,0 +1,25 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+  cin.tie(NULL);
+  ios_base::sync_with_stdio(false);
+  int T =0;
+  int ChickenPrice=0;
+  int Money = 0;
+  int CouponCost =5;
+  int couponGive =1;
+  int count =0;
+  int count2 =0;
+    int coupon = 40;
+    
+    while(coupon>=CouponCost) {
+      coupon = coupon - CouponCost;
+      coupon += couponGive;
+      count++;
+    }
+    coupon = 40;
+    count2 =coupon / (CouponCost-couponGive);
+    cout << count<< " " << count2 << '\n';
+  }
