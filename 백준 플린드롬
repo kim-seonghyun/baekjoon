@@ -1,0 +1,36 @@
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+bool DP[2001][2001];
+int str[2001];
+int max1 = 0;
+
+int main() {
+	int N;
+	cin >> N;
+	for (int i = 0; i < N; i++) {
+		cin >> str[i];
+	}
+	for (int i = 0; i < N; i++) {
+		DP[i][i] = true;
+	}
+
+	for (int i = 0; i < N-1; i++) {
+		if (str[i] == str[i + 1]) {
+			DP[i][i + 1] = true;
+		}
+	}
+
+	for (int k = 2; k < N; k++) {
+		for (int i = 0; i < N- k; i++) {
+			int j = i + k;
+			if (str[i] == str[j] && DP == true) {
+				str[i][j] = true;
+				max1 = k;
+			}
+		}
+	}
+	
+}
