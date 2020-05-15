@@ -1,0 +1,31 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+  cin.tie(NULL);
+  ios_base::sync_with_stdio(false);
+  int T =0;
+  int ChickenPrice=0;
+  int Money = 0;
+  int CouponCost =0;
+  int couponGive =0;
+  cin >> T;
+  for (int i=0; i<T; i++){
+    cin >> ChickenPrice >> Money >> CouponCost >> couponGive;
+    int ChickenNum = Money/ChickenPrice;
+    int ChickenCouponNum = ChickenNum*couponGive/CouponCost;
+
+    int dooyoung =  ChickenNum + ChickenCouponNum;
+
+    int coupon = couponGive * ChickenNum;
+    int sangun = ChickenNum;
+    while(coupon<CouponCost) {
+      coupon = coupon - CouponCost;
+      sangun++;
+      coupon += couponGive;
+    }
+    
+    cout << sangun - dooyoung << '\n';
+  }
+}
