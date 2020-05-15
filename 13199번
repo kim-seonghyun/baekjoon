@@ -1,0 +1,27 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+  cin.tie(NULL);
+  ios_base::sync_with_stdio(false);
+  int T =0;
+  int ChickenPrice=0;
+  int Money = 0;
+  int CouponCost =0;
+  int couponGive =0;
+  cin >> T;
+  for (int i=0; i<T; i++){
+    cin >> ChickenPrice >> Money >> CouponCost >> couponGive;
+    int ChickenNum = Money/ChickenPrice;// 돈으로 시킨치킨
+    int ChickenCouponNum = ChickenNum*couponGive/CouponCost; //쿠폰으로시킨치킨
+
+    int dooyoung =  ChickenNum + ChickenCouponNum; //두영이 치킨
+
+    int coupon = couponGive * ChickenNum; //쿠폰 개수
+    int couponNum=coupon / (CouponCost-couponGive); // 쿠폰으로 시킨치킨 총 개수
+    int sangun = ChickenNum + couponNum; // 돈으로 시킨치킨 + 쿠폰으로시킨치킨(상언)
+    
+    cout << sangun - dooyoung << '\n';
+  }
+}
