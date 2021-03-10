@@ -1,0 +1,33 @@
+import sys
+sys.setrecursionlimit(99999)
+input = sys.stdin.readline
+
+# 파티션 구현 (분할)
+def partition(array, left, right):
+    pivotValue = array[right]
+    pivot = left
+    for i in range(int(pivot), int(right)):
+        if array[i] <= pivotValue:
+            (array[i], array[pivot]) = (array[pivot], array[i])
+            pivot += 1
+    (array[pivot], array[right]) = (array[right], array[pivot])
+    return pivot
+
+
+# 재귀 구현 (정복)
+def quickSort(array, left, right):
+    if left < right:
+        pivot = partition(array, left, right)
+        quickSort(array, left, pivot-1)
+        quickSort(array, pivot+1, right)
+    return array
+
+
+N = int(input())
+array = []
+for i in range(0, int(N)):
+    array.append(int(input()))
+array = quickSort(array, 0, N-1)
+
+for i in array:
+    print(i)
